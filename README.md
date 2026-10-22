@@ -39,9 +39,6 @@
 
 ![アプリケーションの画面](https://github.com/user-attachments/assets/eed40585-3345-4bbb-bff5-ec471252f7e5)
 
-## ER図
-
-![ER図](https://github.com/user-attachments/assets/5ef04a42-ab8f-4f4d-96a3-ac20e738cfaf)
 
 ### テーブル構成
 
