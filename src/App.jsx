@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { apiFetch } from "./api";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -8,7 +9,7 @@ function App() {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/todos");
+      const response = await apiFetch("http://localhost:8080/api/todos");
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -25,7 +26,7 @@ function App() {
     if (!title.trim()) return;
 
     try {
-      const response = await fetch("http://localhost:8080/api/todos", {
+      const response = await apiFetch("http://localhost:8080/api/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, description, completed: false }),
@@ -43,7 +44,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/todos/${id}`, {
+      const response = await apiFetch(`http://localhost:8080/api/todos/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -56,7 +57,7 @@ function App() {
 
   const handleToggleComplete = async (todo) => {
     try {
-      const response = await fetch(
+      const response = await apiFetch(
         `http://localhost:8080/api/todos/${todo.id}`,
         {
           method: "PUT",
